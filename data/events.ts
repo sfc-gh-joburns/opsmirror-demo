@@ -1,0 +1,63 @@
+export interface TelemetryEvent {
+  id: number;
+  timestamp: string;
+  type: "APP_SWITCH" | "FORM_FILL" | "SEARCH" | "DATA_ENTRY" | "EMAIL_SEND" | "FILE_UPLOAD" | "FILE_DOWNLOAD" | "CLICK" | "COPY_PASTE" | "NAVIGATION";
+  description: string;
+  app: string;
+  workflowStep: number;
+}
+
+export const telemetryEvents: TelemetryEvent[] = [
+  { id: 1, timestamp: "09:14:23", type: "APP_SWITCH", description: 'Sarah opened Salesforce CRM', app: "Salesforce", workflowStep: 1 },
+  { id: 2, timestamp: "09:14:25", type: "FORM_FILL", description: 'Client Name: "Meridian Capital Partners"', app: "Salesforce", workflowStep: 1 },
+  { id: 3, timestamp: "09:14:28", type: "DATA_ENTRY", description: 'Entity Type: "Institutional Fund"', app: "Salesforce", workflowStep: 1 },
+  { id: 4, timestamp: "09:14:31", type: "CLICK", description: "Clicked 'Submit New Client Request'", app: "Salesforce", workflowStep: 1 },
+  { id: 5, timestamp: "09:14:35", type: "APP_SWITCH", description: "Sarah opened Compliance Portal", app: "Compliance Portal", workflowStep: 2 },
+  { id: 6, timestamp: "09:14:38", type: "SEARCH", description: 'KYC lookup: "Meridian Capital Partners"', app: "Compliance Portal", workflowStep: 2 },
+  { id: 7, timestamp: "09:14:42", type: "CLICK", description: "Initiated automated KYC screening", app: "Compliance Portal", workflowStep: 2 },
+  { id: 8, timestamp: "09:14:55", type: "DATA_ENTRY", description: 'KYC Status: "Pass" -- Auto-populated', app: "Compliance Portal", workflowStep: 2 },
+  { id: 9, timestamp: "09:15:02", type: "APP_SWITCH", description: "Sarah opened Document Portal", app: "Document Portal", workflowStep: 3 },
+  { id: 10, timestamp: "09:15:05", type: "FILE_UPLOAD", description: 'Uploaded "Meridian_ID_Verification.pdf"', app: "Document Portal", workflowStep: 3 },
+  { id: 11, timestamp: "09:15:12", type: "FILE_UPLOAD", description: 'Uploaded "Meridian_Proof_of_Address.pdf"', app: "Document Portal", workflowStep: 3 },
+  { id: 12, timestamp: "09:15:18", type: "CLICK", description: "Triggered ID verification scan", app: "Document Portal", workflowStep: 3 },
+  { id: 13, timestamp: "09:15:30", type: "DATA_ENTRY", description: 'Verification Result: "Match Confirmed"', app: "Document Portal", workflowStep: 3 },
+  { id: 14, timestamp: "09:15:35", type: "APP_SWITCH", description: "Sarah opened Sanctions Screening System", app: "Sanctions System", workflowStep: 4 },
+  { id: 15, timestamp: "09:15:38", type: "SEARCH", description: 'PEP/Sanctions check: "Meridian Capital Partners"', app: "Sanctions System", workflowStep: 4 },
+  { id: 16, timestamp: "09:15:45", type: "DATA_ENTRY", description: 'Screening Result: "No Match"', app: "Sanctions System", workflowStep: 4 },
+  { id: 17, timestamp: "09:15:48", type: "SEARCH", description: 'Director screen: "James T. Henderson"', app: "Sanctions System", workflowStep: 4 },
+  { id: 18, timestamp: "09:15:55", type: "DATA_ENTRY", description: 'Director Screen: "Clear"', app: "Sanctions System", workflowStep: 4 },
+  { id: 19, timestamp: "09:16:00", type: "APP_SWITCH", description: "Sarah opened Risk Assessment Module", app: "Risk Module", workflowStep: 5 },
+  { id: 20, timestamp: "09:16:05", type: "DATA_ENTRY", description: 'Industry: "Asset Management"', app: "Risk Module", workflowStep: 5 },
+  { id: 21, timestamp: "09:16:10", type: "DATA_ENTRY", description: 'AUM: "$2.4B"', app: "Risk Module", workflowStep: 5 },
+  { id: 22, timestamp: "09:16:15", type: "DATA_ENTRY", description: 'Risk Rating: "Standard"', app: "Risk Module", workflowStep: 5 },
+  { id: 23, timestamp: "09:16:20", type: "APP_SWITCH", description: "Sarah opened Credit Bureau Portal", app: "Credit Bureau", workflowStep: 6 },
+  { id: 24, timestamp: "09:16:23", type: "SEARCH", description: 'Credit check: "Meridian Capital Partners"', app: "Credit Bureau", workflowStep: 6 },
+  { id: 25, timestamp: "09:16:30", type: "DATA_ENTRY", description: 'Credit Score: "AA-"', app: "Credit Bureau", workflowStep: 6 },
+  { id: 26, timestamp: "09:16:35", type: "APP_SWITCH", description: "Sarah opened Core Banking System", app: "Core Banking", workflowStep: 7 },
+  { id: 27, timestamp: "09:16:38", type: "FORM_FILL", description: 'Account Type: "Institutional Cash Management"', app: "Core Banking", workflowStep: 7 },
+  { id: 28, timestamp: "09:16:42", type: "FORM_FILL", description: 'Currency: "AUD"', app: "Core Banking", workflowStep: 7 },
+  { id: 29, timestamp: "09:16:48", type: "DATA_ENTRY", description: 'Relationship Manager: "David Chen"', app: "Core Banking", workflowStep: 7 },
+  { id: 30, timestamp: "09:16:52", type: "CLICK", description: "Clicked 'Create Account'", app: "Core Banking", workflowStep: 7 },
+  { id: 31, timestamp: "09:16:58", type: "COPY_PASTE", description: 'Copied Account ID: "WIB-2026-MCR-0847"', app: "Core Banking", workflowStep: 7 },
+  { id: 32, timestamp: "09:17:05", type: "APP_SWITCH", description: "Sarah opened Document Management", app: "Document Mgmt", workflowStep: 8 },
+  { id: 33, timestamp: "09:17:10", type: "NAVIGATION", description: "Navigated to Client Folder > Meridian Capital", app: "Document Mgmt", workflowStep: 8 },
+  { id: 34, timestamp: "09:17:15", type: "FILE_DOWNLOAD", description: 'Downloaded "Onboarding_Checklist_Template.xlsx"', app: "Document Mgmt", workflowStep: 8 },
+  { id: 35, timestamp: "09:17:22", type: "APP_SWITCH", description: "Sarah opened Email (Outlook)", app: "Outlook", workflowStep: 8 },
+  { id: 36, timestamp: "09:17:28", type: "EMAIL_SEND", description: 'To: meridian@mcpartners.com | Subject: "Required Documents"', app: "Outlook", workflowStep: 8 },
+  { id: 37, timestamp: "09:17:35", type: "APP_SWITCH", description: "Sarah opened Compliance Portal", app: "Compliance Portal", workflowStep: 9 },
+  { id: 38, timestamp: "09:17:40", type: "CLICK", description: "Initiated compliance review workflow", app: "Compliance Portal", workflowStep: 9 },
+  { id: 39, timestamp: "09:17:50", type: "DATA_ENTRY", description: 'Review Outcome: "Approved - Standard"', app: "Compliance Portal", workflowStep: 9 },
+  { id: 40, timestamp: "09:17:55", type: "APP_SWITCH", description: "Sarah opened Workflow Engine", app: "Workflow Engine", workflowStep: 10 },
+  { id: 41, timestamp: "09:18:00", type: "CLICK", description: "Routed for RM approval - David Chen", app: "Workflow Engine", workflowStep: 10 },
+  { id: 42, timestamp: "09:18:10", type: "DATA_ENTRY", description: 'Approval Status: "Approved"', app: "Workflow Engine", workflowStep: 10 },
+  { id: 43, timestamp: "09:18:15", type: "APP_SWITCH", description: "Sarah opened Core Banking System", app: "Core Banking", workflowStep: 11 },
+  { id: 44, timestamp: "09:18:18", type: "CLICK", description: "Activated account WIB-2026-MCR-0847", app: "Core Banking", workflowStep: 11 },
+  { id: 45, timestamp: "09:18:25", type: "APP_SWITCH", description: "Sarah opened Email (Outlook)", app: "Outlook", workflowStep: 12 },
+  { id: 46, timestamp: "09:18:30", type: "EMAIL_SEND", description: 'To: meridian@mcpartners.com | Subject: "Welcome to WIB"', app: "Outlook", workflowStep: 12 },
+  { id: 47, timestamp: "09:18:38", type: "APP_SWITCH", description: "Sarah opened IT Service Portal", app: "IT Portal", workflowStep: 13 },
+  { id: 48, timestamp: "09:18:42", type: "FORM_FILL", description: 'Provisioning Request: "Internet Banking + API Access"', app: "IT Portal", workflowStep: 13 },
+  { id: 49, timestamp: "09:18:50", type: "CLICK", description: "Submitted provisioning request", app: "IT Portal", workflowStep: 13 },
+  { id: 50, timestamp: "09:18:55", type: "APP_SWITCH", description: "Sarah opened Salesforce CRM", app: "Salesforce", workflowStep: 14 },
+  { id: 51, timestamp: "09:19:00", type: "DATA_ENTRY", description: 'Assigned RM: "David Chen"', app: "Salesforce", workflowStep: 14 },
+  { id: 52, timestamp: "09:19:05", type: "CLICK", description: "Marked onboarding workflow complete", app: "Salesforce", workflowStep: 14 },
+];
